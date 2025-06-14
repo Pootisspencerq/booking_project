@@ -16,3 +16,6 @@ def booking_view(request):
     else:
         form = BookingForm()
     return render(request, 'booking.html', {'form': form})
+
+def resources_view(request):
+    return render(request, 'resources.html')
