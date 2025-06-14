@@ -1,10 +1,18 @@
-from django.shortcuts import render
-from .models import Resource, Booking, Customer
+from django.shortcuts import render, redirect
+from .forms import BookingForm
 
-def resource_list(request):
-    resources = Resource.objects.all()
-    return render(request, 'booking_app/resource_list.html', {'resources': resources})
+def home_view(request):
+    return render(request, 'home.html')
 
-def booking_list(request):
-    bookings = Booking.objects.all()
-    return render(request, 'booking_app/booking_list.html', {'bookings': bookings})
+def about_view(request):
+    return render(request, 'about.html')
+
+def booking_view(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = BookingForm()
+    return render(request, 'booking.html', {'form': form})
