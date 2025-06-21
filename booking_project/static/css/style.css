@@ -1,0 +1,8 @@
+body { 
+  background: #ff0000;
+}
+
+.room_list {
+  display: flex;
+  gap: 1rem; /* or any other valid value like 10px */
+}

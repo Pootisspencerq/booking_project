@@ -1,4 +1,5 @@
 from pathlib import Path
+STATIC_URL = '/static/'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -16,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'booking_app',
+    
 ]
 
 MIDDLEWARE = [
